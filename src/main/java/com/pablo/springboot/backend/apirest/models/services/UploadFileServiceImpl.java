@@ -20,7 +20,7 @@ public class UploadFileServiceImpl implements IUploadFileService{
 	
 	private final Logger log = LoggerFactory.getLogger(UploadFileServiceImpl.class);
 	
-	private final static String DIRECTORIO_UPLOAD = "uploads";
+	private final static String DIRECTORIO_UPLOAD = "/home/uploads";
 
 	@Override
 	public Resource cargar(String nombreFoto) throws MalformedURLException {

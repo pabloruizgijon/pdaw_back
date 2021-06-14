@@ -53,12 +53,6 @@ public class Cliente implements Serializable {
 
 	private String foto;
 
-	@NotNull(message = "la región no puede ser vacia")
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "region_id")
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	private Region region;
-
 	@JsonIgnoreProperties(value={"cliente", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL)
 	private List<Factura> facturas;
@@ -115,13 +109,6 @@ public class Cliente implements Serializable {
 		this.foto = foto;
 	}
 
-	public Region getRegion() {
-		return region;
-	}
-
-	public void setRegion(Region region) {
-		this.region = region;
-	}
 
 	public List<Factura> getFacturas() {
 		return facturas;

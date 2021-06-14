@@ -14,7 +14,6 @@ import com.pablo.springboot.backend.apirest.models.dao.IProductoDao;
 import com.pablo.springboot.backend.apirest.models.entity.Cliente;
 import com.pablo.springboot.backend.apirest.models.entity.Factura;
 import com.pablo.springboot.backend.apirest.models.entity.Producto;
-import com.pablo.springboot.backend.apirest.models.entity.Region;
 
 @Service
 public class ClienteServiceImpl implements IClienteService {
@@ -58,11 +57,6 @@ public class ClienteServiceImpl implements IClienteService {
 		clienteDao.deleteById(id);
 	}
 
-	@Override
-	@Transactional(readOnly = true)
-	public List<Region> findAllRegiones() {
-		return clienteDao.findAllRegiones();
-	}
 
 	@Override
 	@Transactional(readOnly = true)

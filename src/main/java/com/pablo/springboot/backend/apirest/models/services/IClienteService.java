@@ -8,7 +8,6 @@ import org.springframework.data.domain.Pageable;
 import com.pablo.springboot.backend.apirest.models.entity.Cliente;
 import com.pablo.springboot.backend.apirest.models.entity.Factura;
 import com.pablo.springboot.backend.apirest.models.entity.Producto;
-import com.pablo.springboot.backend.apirest.models.entity.Region;
 
 public interface IClienteService {
 
@@ -21,8 +20,6 @@ public interface IClienteService {
 	public Cliente save(Cliente cliente);
 	
 	public void delete(Long id);
-	
-	public List<Region> findAllRegiones();
 	
 	public Factura findFacturaById(Long id);
 	
