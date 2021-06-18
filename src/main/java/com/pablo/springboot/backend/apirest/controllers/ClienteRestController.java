@@ -38,7 +38,7 @@ import com.pablo.springboot.backend.apirest.models.entity.Cliente;
 import com.pablo.springboot.backend.apirest.models.services.IClienteService;
 import com.pablo.springboot.backend.apirest.models.services.IUploadFileService;
 
-@CrossOrigin(origins = { "http://localhost:4200" })
+
 @RestController
 @RequestMapping("/api")
 public class ClienteRestController {
@@ -51,11 +51,13 @@ public class ClienteRestController {
 	
 	// private final Logger log = LoggerFactory.getLogger(ClienteRestController.class);
 
+	@CrossOrigin(origins = "https://proyecto-final-front-2.web.app")
 	@GetMapping("/clientes")
 	public List<Cliente> index() {
 		return clienteService.findAll();
 	}
 	
+	@CrossOrigin(origins = "https://proyecto-final-front-2.web.app")
 	@GetMapping("/clientes/page/{page}")
 	public Page<Cliente> index(@PathVariable Integer page) {
 		Pageable pageable = PageRequest.of(page, 4);
@@ -63,6 +65,7 @@ public class ClienteRestController {
 	}
 	
 	@Secured({"ROLE_ADMIN", "ROLE_USER"})
+	@CrossOrigin(origins = "https://proyecto-final-front-2.web.app")
 	@GetMapping("/clientes/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id) {
 		
@@ -86,6 +89,7 @@ public class ClienteRestController {
 	}
 	
 	@Secured("ROLE_ADMIN")
+	@CrossOrigin(origins = "https://proyecto-final-front-2.web.app")
 	@PostMapping("/clientes")
 	public ResponseEntity<?> create(@Valid @RequestBody Cliente cliente, BindingResult result) {
 		
@@ -117,6 +121,7 @@ public class ClienteRestController {
 	}
 	
 	@Secured("ROLE_ADMIN")
+	@CrossOrigin(origins = "https://proyecto-final-front-2.web.app")
 	@PutMapping("/clientes/{id}")
 	public ResponseEntity<?> update(@Valid @RequestBody Cliente cliente, BindingResult result, @PathVariable Long id) {
 
@@ -165,6 +170,7 @@ public class ClienteRestController {
 	}
 	
 	@Secured("ROLE_ADMIN")
+	@CrossOrigin(origins = "https://proyecto-final-front-2.web.app")
 	@DeleteMapping("/clientes/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 		
@@ -189,6 +195,7 @@ public class ClienteRestController {
 	}
 	
 	@Secured({"ROLE_ADMIN", "ROLE_USER"})
+	@CrossOrigin(origins = "https://proyecto-final-front-2.web.app")
 	@PostMapping("/clientes/upload")
 	public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("id") Long id){
 		Map<String, Object> response = new HashMap<>();
@@ -222,6 +229,7 @@ public class ClienteRestController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
+	@CrossOrigin(origins = "https://proyecto-final-front-2.web.app")
 	@GetMapping("/uploads/img/{nombreFoto:.+}")
 	public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto){
 

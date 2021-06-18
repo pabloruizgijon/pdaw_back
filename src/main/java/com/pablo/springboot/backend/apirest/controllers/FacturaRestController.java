@@ -19,8 +19,9 @@ import com.pablo.springboot.backend.apirest.models.entity.Factura;
 import com.pablo.springboot.backend.apirest.models.entity.Producto;
 import com.pablo.springboot.backend.apirest.models.services.IClienteService;
 
-@CrossOrigin(origins = { "http://localhost:4200" })
+
 @RestController
+@CrossOrigin(origins = "https://proyecto-final-front-2.web.app")
 @RequestMapping("/api")
 public class FacturaRestController {
 

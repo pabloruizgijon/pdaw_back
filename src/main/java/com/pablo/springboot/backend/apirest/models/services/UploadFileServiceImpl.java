@@ -20,7 +20,7 @@ public class UploadFileServiceImpl implements IUploadFileService{
 	
 	private final Logger log = LoggerFactory.getLogger(UploadFileServiceImpl.class);
 	
-	private final static String DIRECTORIO_UPLOAD = "/home/uploads";
+	private final static String DIRECTORIO_UPLOAD = "uploadss";
 
 	@Override
 	public Resource cargar(String nombreFoto) throws MalformedURLException {
@@ -50,7 +50,6 @@ public class UploadFileServiceImpl implements IUploadFileService{
 		log.info(rutaArchivo.toString());
 		
 		Files.copy(archivo.getInputStream(), rutaArchivo);
-		
 		return nombreArchivo;
 	}
 
